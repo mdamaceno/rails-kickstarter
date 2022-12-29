@@ -1,0 +1,97 @@
+AllCops:
+  SuggestExtensions: false
+  TargetRubyVersion: 2.6
+  NewCops: enable
+  Exclude:
+    - "db/**/*"
+    - "tmp/**/*"
+    - "vendor/**/*"
+    - "bin/**/*"
+    - "log/**/*"
+    - "config.ru"
+    - "node_modules/**/*"
+
+require: rubocop-rails
+
+Layout/ArgumentAlignment:
+  EnforcedStyle: with_fixed_indentation
+
+Layout/FirstArrayElementIndentation:
+  EnforcedStyle: consistent
+
+Layout/HashAlignment:
+  EnforcedLastArgumentHashStyle: ignore_implicit
+
+Layout/ParameterAlignment:
+  EnforcedStyle: with_fixed_indentation
+
+Layout/EmptyLinesAroundClassBody:
+  Enabled: false
+
+Layout/LineLength:
+  Max: 120
+  IgnoreCopDirectives: true
+  AllowedPatterns:
+    - '^\s*# '
+  Exclude:
+    - spec/support/*.rb
+    - config/initializers/devise.rb
+
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - "**/*_spec.rb"
+
+Style/Documentation:
+  Enabled: false
+
+Style/BlockDelimiters:
+  EnforcedStyle: braces_for_chaining
+
+Style/EmptyMethod:
+  EnforcedStyle: expanded
+
+# Style/WordArray:
+#   Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/StringLiteralsInInterpolation:
+  Enabled: false
+
+Style/HashEachMethods:
+  Enabled: true
+
+Style/HashTransformKeys:
+  Enabled: true
+
+Style/HashTransformValues:
+  Enabled: true
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+  Exclude:
+    - lib/tasks/*.rake
+    - spec/**/*_spec.rb
+
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: comma
+
+Metrics/MethodLength:
+  Max: 20
+  Exclude:
+    - "spec/support/*.rb"
+    - "db/migrate/*.rb"
+
+Metrics/BlockLength:
+  Exclude:
+    - Guardfile
+    - config/environments/*
+    - config/routes.rb
+    - "**/*_spec.rb"
